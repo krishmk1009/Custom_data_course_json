@@ -6,6 +6,10 @@ const port = 3000;
 
 app.use(cors());
 
+app.get("/", (req, res) => {
+    res.send("Express on Vercel");
+  });
+
 app.get('/getData', (req, res) => {
   fs.readFile('data.json', 'utf8', (err, data) => {
     if (err) {
@@ -22,3 +26,6 @@ app.get('/getData', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+
+module.exports = app;
